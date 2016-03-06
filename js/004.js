@@ -8,46 +8,73 @@
 
 	Notes:
 
-	This solution checks the products of two 3-digit factors in blocks of 100.
-	i.e. - all the possibilities of 9XX * 9XX, then 8XX, etc.
+	This solution has been updated using Project Euler's overview.
+	Additionally, I refactored it to be modular and find the largest palindrome
+	for the paramater n which is the number of digits in the factors.
 
-	It most certainly will not return the correct answer in all cases.
-
+	n = 2 = ~2ms
+	n = 3 = ~5ms
+	n = 4 = ~7ms
+	n = 5 = ~32ms
+	n = 6 = ~170ms
+	n = 7 = ~1700ms
  */
 exports.solution004 = function(){
 
-	console.log(findPalindrome());
+	console.log( findPalindrome( 8 ) );
 }
 
-function findPalindrome(){
+function findPalindrome( n ){
+	var palindrome = 0;
+	var max, min, max_divisible_by_11;
+	var first_factor, second_factor, decrement;
 
-	var first_factor  = 999;
-	var second_factor = first_factor;
-	var limit = first_factor - 100;
-	var product;
+	max = Math.pow(10, n) - 1;
+	min = Math.pow(10, (n-1));
 
-	while( first_factor > limit ){
-		while( second_factor > limit ){
-
-			product = first_factor * second_factor;
-
-			if( isPalindrome(product) ){
-				return product;
-			}
-			else{
-				second_factor--;
-			}
+	if( max % 11 === 0 ){
+		max_divisible_by_11 = max;
+	}
+	else{
+		var i = max;
+		while( i % 11 !== 0 ){
+			i--;
 		}
-		
-		if( first_factor - limit === 1 ){
-			limit -= 100;
+		max_divisible_by_11 = i;
+		i = undefined;
+	}
+
+	first_factor = max;
+	
+	while( first_factor >= min ){
+
+		if( first_factor % 11 === 0 ){
+			second_factor = max;
+			decrement = 1;
+		}
+		else{
+			second_factor = max_divisible_by_11;
+			decrement = 11;
+		}
+		while( second_factor >= first_factor ){
+
+			var product = first_factor * second_factor;
+			
+			if( product <= palindrome ){
+				break;
+			}
+
+			if( isPalindrome( product ) ){
+				palindrome = product;
+			}
+
+			second_factor -= decrement;
 		}
 
 		first_factor--;
-		second_factor = first_factor;
 	}
 
-	return 'Could not find palindrome.';
+	return palindrome ? palindrome : 'Could not find palindrome.';
 }
 
 function isPalindrome( i ){
