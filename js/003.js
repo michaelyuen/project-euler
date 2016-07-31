@@ -44,4 +44,4 @@ exports.solution003 = function(){
 
 		console.log(prime_factors);
 	}
-}
+};

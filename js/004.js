@@ -22,7 +22,7 @@
 exports.solution004 = function(){
 
 	console.log( findPalindrome( 8 ) );
-}
+};
 
 function findPalindrome( n ){
 	var palindrome = 0;
@@ -75,7 +75,7 @@ function findPalindrome( n ){
 	}
 
 	return palindrome ? palindrome : 'Could not find palindrome.';
-}
+};
 
 function isPalindrome( i ){
 
@@ -87,4 +87,4 @@ function isPalindrome( i ){
 	else{
 		return false;
 	}
-}
+};

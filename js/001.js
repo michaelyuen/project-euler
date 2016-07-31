@@ -16,4 +16,4 @@ exports.solution001 = function(){
 	}
 
 	console.log(sum);
-}
+};

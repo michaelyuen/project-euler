@@ -16,7 +16,7 @@
 exports.solution006 = function(){
 
 	sumSquareDifference( 100 );
-}
+};
 
 function sumSquareDifference( n ){
 
@@ -24,7 +24,7 @@ function sumSquareDifference( n ){
 	var square_of_sum  = squareOfSum( n );
 
 	console.log( square_of_sum - sum_of_squares );
-}
+};
 
 function sumOfSquares( n ){
 	var sum = 0;
@@ -32,7 +32,7 @@ function sumOfSquares( n ){
 		sum += Math.pow(i, 2);
 	}
 	return sum;
-}
+};
 
 function squareOfSum( n ){
 	var sum = 0;
@@ -40,4 +40,4 @@ function squareOfSum( n ){
 		sum += i;
 	}
 	return Math.pow(sum, 2);
-}
+};

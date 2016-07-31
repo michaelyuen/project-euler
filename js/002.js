@@ -25,4 +25,4 @@ exports.solution002 = function(){
 	}
 
 	console.log(even_sum);
-}
+};

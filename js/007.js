@@ -6,7 +6,7 @@
 exports.solution007 = function(){
 
 	console.log( findPrime( 10001 ) );
-}
+};
 
 function findPrime( n ){
 
@@ -25,7 +25,7 @@ function findPrime( n ){
 	}
 
 	return primes.pop();
-}
+};
 
 function isPrime( n, primes ){
 
@@ -37,4 +37,4 @@ function isPrime( n, primes ){
 	}
 
 	return true;
-}
+};

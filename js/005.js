@@ -13,7 +13,7 @@ exports.solution005 = function(){
 	}
 
 	console.log(num);
-}
+};
 
 function isEvenlyDivisible( num, factors ){
 	for( var i=0; i < factors.length; i++){
@@ -23,4 +23,4 @@ function isEvenlyDivisible( num, factors ){
 	}
 
 	return true;
-}
+};
