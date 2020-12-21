@@ -13,7 +13,7 @@ const areSpecial = ({ a, b, c }) => a + b + c === 1000;
 const areValid = ({ a, b, c }) => a < b && b < c;
 const findSpecialTriplet = () => {
   for (let a = 0; a < 1000; a++) {
-    for (let b = 1; b < 1000; b++) {
+    for (let b = a + 1; b < 1000 - a; b++) {
       const c = squareRoot(square(a) + square(b));
       if (
         isWhole(c) &&
